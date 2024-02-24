@@ -1,4 +1,9 @@
-import { Calculator, capitalize, reverseString } from "./function.js";
+import {
+  Calculator,
+  caesarCipher,
+  capitalize,
+  reverseString,
+} from "./function.js";
 
 test("Capitalize", () => {
   expect(capitalize("sadat")).toBe("Sadat");
@@ -18,4 +23,15 @@ test("Calculator", () => {
   expect(Calculator.subtract(1, 2)).toEqual(-1);
   expect(Calculator.product(1, 2)).toEqual(2);
   expect(Calculator.divide(1, 2)).toBe(0.5);
+});
+
+test("Caesar Cipher", () => {
+  expect(caesarCipher("abcd", 0)).toBe("ABCD");
+  expect(caesarCipher("abcd", 2)).toBe("CDEF");
+  expect(caesarCipher("sadat", 3)).toBe("VDGDW");
+  expect(caesarCipher("xyz", 3)).toBe("ABC");
+  expect(caesarCipher("xyz", 0)).toBe("XYZ");
+  expect(caesarCipher("xyza", 2)).toBe("ZABC");
+  expect(caesarCipher("Hello Its me", 1)).toBe("IFMMP JUT NF");
+  expect(caesarCipher("This is me!!", 7)).toBe("AOPZ PZ TL!!");
 });

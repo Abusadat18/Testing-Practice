@@ -15,4 +15,22 @@ const Calculator = (() => {
   return { sum, subtract, product, divide };
 })();
 
-export { capitalize, reverseString, Calculator };
+function caesarCipher(str, shiftFactor) {
+  const s = str.toUpperCase();
+  const unicodeArr = [];
+  for (let i = 0; i < s.length; i++) {
+    let newCode = s.charCodeAt(i) + shiftFactor;
+    if (newCode > 90) {
+      let diff = newCode - 90;
+      newCode = 64 + diff;
+    } else if (newCode - shiftFactor === 32) {
+      newCode = 32;
+    } else if (newCode - shiftFactor === 33) {
+      newCode = 33;
+    }
+    unicodeArr.push(newCode);
+  }
+  return String.fromCharCode(...unicodeArr);
+}
+
+export { capitalize, reverseString, Calculator, caesarCipher };
