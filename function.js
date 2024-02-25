@@ -33,4 +33,16 @@ function caesarCipher(str, shiftFactor) {
   return String.fromCharCode(...unicodeArr);
 }
 
-export { capitalize, reverseString, Calculator, caesarCipher };
+function analyzeArray(arr) {
+  const sum = arr.reduce((accu, curr) => {
+    return accu + curr;
+  }, 0);
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  const length = arr.length;
+  const average = sum / length;
+
+  return { average, min, max, length };
+}
+
+export { capitalize, reverseString, Calculator, caesarCipher, analyzeArray };
